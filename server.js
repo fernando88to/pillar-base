@@ -31,6 +31,11 @@ app.get("/servicos", function (req, res) {
             {"id":6,"nome":"AWS Lambda", "moeda":"dolar", "pagamentofixo":false,"periodoteste":true,"servidornobrasil":true,"cotagratuitaproducao":false, "url":"https://aws.amazon.com/pt/lambda/pricing/", "pontuacao":0}
         ]
     };
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
     res.statusCode = 200
     res.setHeader('Content-Type', 'application/json; charset=utf-8')
     res.end(JSON.stringify(servidores));
